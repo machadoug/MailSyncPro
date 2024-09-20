@@ -1,9 +1,23 @@
-IMAP Copy
-=========
+MailSyncPro
+===========
 
-A simple utility to copy folders between IMAP mail servers.
+**MailSyncPro** is a robust command-line tool built on top of the **ImapCopy** repository, designed specifically for advanced users who need to transfer and synchronize email accounts between different IMAP servers. While retaining the core capabilities of ImapCopy, **MailSyncPro** introduces significant improvements that make the migration process more efficient, accurate, and easier to monitor.
 
-It only requires standard Python 3.5 or later.
+Key Enhancements:
+--------
+
+*   **Email Duplication Check**: Before transferring messages, **MailSyncPro** checks whether an email already exists in the destination, preventing unnecessary duplication and reducing the risk of errors during migration.
+    
+*   **Folder Name Handling**: Folders with spaces in their names, which often cause errors in other tools, are seamlessly handled by MailSyncPro, ensuring smooth migration without manual folder name adjustments.
+    
+*   **Selective Folder Transfer**: Instead of skipping a specific number of messages when importing all emails, MailSyncPro allows you to skip entire folders, giving you granular control over what data gets transferred.
+    
+*   **Detailed Progress Information**: MailSyncPro provides real-time feedback by displaying the total number of messages in each source folder and how many have been successfully imported into the destination folder. This transparency ensures users are always informed of the migration status.
+    
+*   **\--test Mode**: The powerful `--test` option allows users to preview the migration process. It shows the number of emails in each folder and verifies whether the source and destination folders have matching email counts, making it easy to confirm that your migration will be successful before making any changes.
+    
+
+With these enhancements, **MailSyncPro** is ideal for system administrators, email service providers, or advanced users who need more control and visibility during email migration. Although it’s a command-line tool and not highly user-friendly for beginners, its features are designed to streamline complex migrations and ensure data integrity across IMAP servers.
 
 Examples
 --------
@@ -85,7 +99,7 @@ messages number 124 through 223 from Gmail:
 Copying all folders and sub-folders from a server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``--recurse`` option copies the contents of a folder and its sub-folders.
+The ``--recurse`` option copies the contents of a folder and its sub-folders. Do not inform the folders to import all folders.
 Also, if you use an empty string ``""`` as the source ``folder``, all the folders in
 the source server  will be copied to the destination.
 
@@ -115,6 +129,7 @@ Usage
     -h, --help            show this help message and exit
     -t, --test            do not copy, only test connections to source and destination
     -c, --create-folders  create folders on destination
+    --skip-folders S      skip folders. Add multiple folders. e.g. "folder1" "Folder 2"       
     -r, --recurse         recurse into sub-folders
     -q, --quiet           be quiet, print no output
     -v, --verbose         print debug-level output
