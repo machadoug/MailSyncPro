@@ -144,3 +144,12 @@ Emails don't show up on cPanel
 cPanel has a script to regenerate the dovecot files, however it will need to be run as the "root" user via SSH.
 Below is cPanels guide on how to run the script
 https://docs.cpanel.net/whm/scripts/the-remove_dovecot_index_files-script/
+
+
+Destination folder has more emails than source
+~~~~~~~~~~~~~~~~~~~~
+If you notice that the destination folder has more emails than the source after migration, this is typically due to an inability to verify if an email already exists in the destination folder. When MailSyncPro cannot confirm the presence of a message in the destination folder, it will proceed to copy the email again. This behavior ensures that no emails are left behind during migration, prioritizing completeness over potential duplication.
+
+While this might result in duplicate emails in the destination, it's considered a safer approach compared to risking missing messages. The tool is designed this way to guarantee that all emails from the source are successfully transferred, minimizing the risk of incomplete migrations. It's generally easier to remove duplicates than to track down missing messages.
+
+If you encounter this issue frequently, reviewing your email deduplication process post-migration might help maintain the integrity of your inbox.
