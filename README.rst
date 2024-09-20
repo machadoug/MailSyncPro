@@ -120,3 +120,12 @@ Usage
     -v, --verbose         print debug-level output
     -s N, --skip N        skip the first N message(s)
     -l N, --limit N       only copy at most N message(s)
+
+Troubleshooting
+-----
+
+Emails don't show up on cPanel
+~~~~~~~~~~~~~~~~~~~~
+cPanel has a script to regenerate the dovecot files, however it will need to be run as the "root" user via SSH.
+Below is cPanels guide on how to run the script
+https://docs.cpanel.net/whm/scripts/the-remove_dovecot_index_files-script/
